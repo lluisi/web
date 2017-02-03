@@ -1,3 +1,3 @@
-# Personal website
+# Personal website (WIP)
 
 Lluís Inglès Elias
