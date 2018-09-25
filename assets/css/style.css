@@ -1,0 +1,845 @@
+/* DESIGN BY MOHAMED MAGDY >>>>>>> https://themeforest.net/user/mego120
+/* * * * * * * * * * * * * * * * *
+*    ^^^ Body Container ^^^      *
+* -------------------------------*
+*    1 - Header Section          *
+*--------------------------------*
+*    2 - Services Section        *
+*--------------------------------*
+*    3 - About Me Section        *
+*--------------------------------*
+*    4 - My Skills Section       *
+*--------------------------------*
+*    5 - My Works Section        *
+*--------------------------------*
+*    6 - Resume Section          *
+*--------------------------------*
+*    7 - Clinets Section         *
+*--------------------------------*
+*    8 - Contacts Section        *
+* * * * * * * * * * * * * * * * */
+/*======== Start Global body ========*/
+
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 28px 28px 0;
+  overflow: hidden
+}
+section {padding: 95px 0}
+button {cursor: pointer}
+p ,li {
+  line-height: 31px;
+  letter-spacing: 1px
+}
+h1, h2, h3, h4, h5, h6 {text-transform: uppercase ;font-weight: 700}
+h2 {font-size: 30px}
+h4 {font-size: 18px ;text-transform: capitalize}
+a:hover {color: none}
+
+/* Head Section */
+.head-section {position: relative ;margin-bottom: 85px}
+.head-section h2:before {
+  content: "";
+  position: absolute;
+  top: 38px;
+  width: 41px;
+  border: 2px solid
+}
+
+/*Here Transsition*/
+.icon-style
+,.navbar
+,.services .card-body:after
+,.services .card-body:before
+,.services .card-body:hover .line-card
+,.services .line-card
+,.about .bnt-about a:hover
+,.about .bnt-about a
+,.about .img-about:before
+,.about .img-about:hover:before
+,.video-bg:before
+,.video-bg:hover:before
+,.video-bg .video i
+,.video-bg .video:hover i
+,.works ul li:before
+,.works ul li
+,.works .gallery .item .overlay
+,.works .gallery .item:hover .overlay
+,.works .gallery .card-body h6
+,.works .gallery .card-body span
+,.works .gallery .item .overlay i
+,.resume .ex-shadow:hover
+,.resume .ex-shadow
+,.contacts form .form-control
+,.contacts form button
+,.contacts form button:hover
+{
+  -webkit-transition: all .6s ease;
+  -moz-transition: all .6s ease;
+  -o-transition: all .6s ease;
+  transition: all .6s ease
+}
+
+/*========== End Tool body ========*/
+
+/*========== Start Navbar ========*/
+
+.navbar {
+  position: fixed;
+  top: 30px;
+  left: 28px;
+  right: 28px;
+  z-index: 33;
+  opacity: 0
+}
+.nav-scroll {
+  top: 0;
+  padding: 0;
+  opacity: 1;
+}
+.navbar .navbar-brand {
+  font-size: 40px;
+  line-height: 45px;
+}
+
+.navbar li {letter-spacing: 0; font-weight: bold}
+.navbar .nav-item ,.works ul li ,.about .bnt-about {position: relative}
+.navbar .nav-item a:before ,.works ul li:before {
+  content: '';
+  display:block;
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  width:0
+}
+.navbar .nav-item a:hover:before
+,.navbar .nav-item a:focus:before
+,.works ul .selected:before {width: 100%}
+
+/*========== End Navbar ===========*/
+
+/*========== Start Header ========*/
+
+header {padding:15px 0 55px}
+header .priev-bottom {cursor: pointer}
+header .priev-bottom p {margin:47px 0 -21px}
+header .priev-bottom i {display:block; font-size:40px}
+header .image-header {margin:108px auto 37px}
+header .text-header  {margin:188px auto 0}
+header .image-header img {
+  width: 360px;
+  height: auto;
+  border-radius: 49%;
+  margin-right: -166px;
+  position: relative;
+  z-index: 2
+}
+header .image-header .icons-head {margin-right:-166px}
+header .text-header h1 {
+  font-size: 37px;
+  line-height: 54px;
+  font-weight: initial;
+  z-index: 3;
+  padding: 20px 49px;
+  margin-left: -65px;
+  border-radius: 0px 108px 108px 0;
+  width: 78%
+}
+header .text-header p {letter-spacing: 0;margin: 0}
+/*Her Icons */
+.icon-style {
+  margin: 43px 11px 0;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 22px;
+  text-align: center;
+  border-radius:50%;
+}
+
+.icon-style:hover
+,.icon-style:focus
+,.icon-style:visited
+,.icon-style:active
+,.works .gallery .item .overlay i:hover {
+  box-shadow: none;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg)
+}
+
+/*========== End Header ===========*/
+
+/*========== End Services ===========*/
+
+.services .card {
+  background-color: transparent;
+  margin:0 40px 23px;
+  border:none
+}
+.services .card-body {padding:2.30rem 1.25rem}
+.services .card-body:after ,
+.services .card-body:before {
+  content: '' ;
+  position: absolute;
+  width:calc(100% - 35px) ;
+  height:calc(100% - 35px) ;
+  border:1px solid ;
+  pointer-events:none
+}
+.services .card-body:before {
+  top:0 ;
+  left:0 ;
+  border-width:1px 0 0 1px
+}
+.services .card-body:after {
+  bottom:0 ;
+  right:0 ;
+  border-width:0 1px 1px 0
+}
+.services .card-body:hover:before
+,.services .card-body:hover:after
+,.services .card-body:hover:before
+,.services .card-body:hover:after {width:100% ; height:100%}
+.services .card i {
+  margin:9px 0 8px;
+  width: 59px;
+  height: 57px;
+  padding-top: 15px;
+}
+.services .line-card {width: 61px; height: 2px; margin: 12px auto}
+.services .card-body:hover .line-card {width:123px}
+.owl-carousel .owl-stage-outer {cursor: e-resize}
+
+/*========== End Services ===========*/
+
+/*========== Start About ===========*/
+
+.about {padding-bottom: 111px}
+.about ul > li > p {
+  font-size: 18px;
+  line-height: 40px;
+  font-weight: 700;
+  min-width: 99px;
+  display: inline-block;
+  margin: 0
+}
+.about p > span {float: right;}
+.about li > span {margin-left: 7px}
+.about .img-about {position: relative ;z-index: 1}
+.about .img-about:before {
+  content: '';
+  position: absolute;
+  left: 39px;
+  top: 46px;
+  height: 96%;
+  width: 96%;
+  z-index: -1;
+  border-radius: 2px
+}
+.about .img-about img{
+  border: 4px solid;
+  border-radius: 2px;
+  cursor: zoom-in
+}
+.about .bnt-about {margin-top: 26px}
+.about .bnt-about a {
+  border: 0;
+  padding: 11px 15px;
+  font-weight: bold;
+  font-size: 19px;
+  border-radius: 3px;
+  margin-top: 30px;
+  outline: none;
+  text-decoration: none;
+}
+.about .bnt-about a:hover {color: #f3f3f3; box-shadow: none}
+
+/*========== End About ===========*/
+
+/*========== Start Skills ===========*/
+
+.video-bg {position: relative ;cursor: pointer}
+.video-bg img {position: relative ;border: 4px solid ;z-index: 1}
+.video-bg:before {
+  content: '';
+  position: absolute;
+  right: 47px;
+  top: 45px;
+  height: 96%;
+  width: 96%;
+  z-index: 1;
+  border-radius: 2px
+}
+.video-bg .video {
+  position: absolute;
+  top: 38%;
+  left: 19%;
+  right: 19%;
+  z-index: 3
+}
+.video-bg .video i {
+  font-size: 42px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 70px;
+  padding-left: 8px
+}
+.skills .prog {margin:2px 0 24px}
+.skills .prog span {
+  margin-bottom: 3px;
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.skills .progress {
+  overflow: visible;
+  height: 11px;
+  border-radius: 0
+}
+.skills .progress-bar {position: relative ;height: auto}
+.skills .progress-bar span {
+  position: absolute;
+  bottom: -31px;
+  font-size: 13px;
+  line-height: 10px;
+  padding: 4px 6px 5px;
+  right: -1.4em;
+  border-radius: 10px;
+  border: 1px solid
+}
+.skills .progress-bar span:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-width: 5px;
+  margin-left: -5px;
+}
+
+/*========== End Skills ===========*/
+
+/*========== Start Works ===========*/
+
+.works ul {margin-bottom: 40px}
+.works ul li {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+}
+.works .gallery .row > div {padding: 0}
+.works .gallery .row .item {margin: 13px}
+
+.works .gallery .card-body {padding:14px 9px 31px; position: relative;}
+.works .gallery .card-img {position: relative;}
+.works .gallery .card-body h6 {margin-top: 2px}
+.works .gallery .card-body span {
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-size: 12px
+}
+.works .gallery .card-img img {width:100%}
+.works .gallery .item .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: -1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.works .gallery .item:hover .overlay {opacity: 1}
+.works .gallery .item .overlay i {
+  font-size: 20px;
+  margin: 0 7px;
+  padding: 7px;
+  border-radius: 50%
+}
+.lb-dataContainer {height: 48px}
+.lb-data .lb-close {margin-top: 4.5px; margin-right: 2px}
+.lb-data .lb-details {margin: 2px}
+.lb-data .lb-number {padding: 2px 0 0}
+
+/*========== End Works ===========*/
+
+/*========== Start Resume ===========*/
+
+.resume {position: relative}
+.resume .ex-container .mb-head {margin-bottom: 57px}
+.resume .ex-container .mt-head {margin-top: 57px}
+.resume .ex-container {
+   padding:0 5px 13px;
+   margin: 50px auto;
+   position: relative;
+   overflow: hidden;
+   width: 83%
+}
+.resume .ex-container:before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 50%;
+   margin-left: -1px;
+   width: 2px;
+   height: 100%;
+   z-index: 1
+}
+.resume .ex-block {
+   width: -webkit-calc(50% + 8px);
+   width: -moz-calc(50% + 8px);
+   width: calc(50% + 8px);
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -moz-box;
+   display: flex;
+   -webkit-box-pack: justify;
+   -webkit-justify-content: space-between;
+   -moz-box-pack: justify;
+   justify-content: space-between;
+   clear: both
+}
+.resume .ex-block-right {float: right}
+.resume .ex-block-left {float: left; direction: rtl}
+.resume .marker  {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 8px solid;
+  z-index: 9;
+  margin: 43px -4px auto
+}
+.resume .ex-content {width: 94% ;padding: 18px 16px 0}
+.resume .ex-content span {
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: block;
+  margin: 10px 0;
+  font-size: 18px
+}
+.resume .marker-head {z-index: 9}
+.resume .marker-head i {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: -32px;
+  font-size: 45px;
+  color: #f3f3f3;
+  line-height: 89px
+}
+
+/*========== End Resume ===========*/
+
+/*========== Start Clients ===========*/
+
+.clients {padding: 15px 0}
+.clients .item img {
+  width: 60%;
+  height: auto;
+  margin: auto;
+  opacity: 0.6;
+  -webkit-transition: opacity 200ms ease-in;
+  -moz-transition: opacity 200ms ease-in;
+  -o-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+}
+.clients .item img:hover {opacity: 1}
+
+/*========== End Clients ===========*/
+
+/*========== Start Contacts ===========*/
+
+.contacts li {line-height: 33px}
+.contacts li i {margin-right:8px}
+.contacts form {padding:0 21px}
+.contacts form .form-control {
+  border-radius: 0;
+}
+.contacts form textarea {height:227px}
+.contacts .box-form {
+  padding: 10px 8px 17px;
+  position: relative;
+  z-index: 1
+}
+.contacts .contact {padding:10px 12px 7px}
+
+/*========== End Contacts ===========*/
+
+/*=========== Start Footer ===========*/
+
+footer {padding: 26px 0 2px}
+footer h2 {
+  margin-bottom: 17px;
+  font-size: 46px;
+  text-transform: none;
+}
+footer .icon-style {margin: 3px 11px}
+.rights {font-size:13px}
+
+/*=========== End Footer ===========*/
+
+/*=========== Start Loading ===========*/
+
+.loading-over {
+  background:#333;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 100px auto;
+}
+.double-bounce1, .double-bounce2 {
+  width: 150%;
+  height: 150%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+.double-bounce1 {background: #222}
+.double-bounce2 {background: #fff}
+.double-bounce2 {-webkit-animation-delay: -1.0s ;animation-delay: -1.0s}
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+/*=========== End Loading ===========*/
+
+/*========== Start Scroll To Top ===========*/
+
+.scroll-top {
+  position: fixed;
+  bottom: 166px;
+  right: 0;
+  padding: 6px 4.5px;
+  display: none;
+  z-index: 3;
+  font-size: 20px;
+  cursor: pointer
+}
+.lightbox .lb-image {border:0}
+
+/*========== End Scroll To Top ===========*/
+
+/*========== Start @media screen ===========*/
+/* Media 1199px */
+@media (max-width: 1199px) {
+  header .text-header h1 {width: 94%; padding:16px 0 16px 92px}
+}
+/* Media 991px */
+@media (max-width: 991px) {
+  body {padding:0}
+  .nav-scroll {top:0 ;left: 0 ;right: 0 ;padding: 0 10p}
+  section {padding: 55px 0}
+  .head-section {margin-bottom: 50px}
+  .navbar .navbar-brand {font-size: 36px}
+  .navbar .navbar-nav {text-align: center}
+  .navbar .nav-item a:before {display: none}
+  .navbar-light .navbar-toggler {border: 0 ;outline: none}
+  header .text-header {margin: 0vmin auto 5vmin; text-align:center}
+  header .image-header {margin: 64px auto 37px}
+  header .image-header img ,header .image-header .icons-head {margin-right: 0}
+  header .text-header h1 {margin: 0; background: none ;padding: 0 ;width:100%}
+  .about {padding: 80px 0}
+  .about .text-about .card {padding: 1.25rem}
+  .hidden-md {display: none}
+  .video-bg:before {display: none}
+  .skills {padding-top: 49px}
+  .works .gallery .item .overlay {line-height: 186px}
+  .works .gallery .item .overlay i {font-size: 17px}
+  .contacts .contact {margin-top: 26px}
+}
+/* Media 797px */
+@media (max-width:767px) {
+  h2, h1 {font-size:28px !important}
+  h4 {font-size:20px !important}
+  p {font-size:15px !important}
+  .contacts ul {margin-top:24px}
+  .resume .ex-container{overflow: inherit}
+  .resume .ex-container:before {left: 8px ;width: 2px}
+  .resume .ex-block {width: 100%; margin-bottom: 30px}
+  .resume .ex-block-right {float: none}
+  .resume .ex-block-left {float: none; direction: ltr}
+  .resume .marker {margin-left: -7px}
+  .resume .marker-head i {
+   width: 55px;
+   height: 55px;
+   margin-left: -24px;
+   font-size: 36px;
+   line-height: 63px;
+ }
+ .video-bg .video i {
+  font-size: 35px;
+  width: 58px;
+  height: 58px;
+  line-height: 58px
+ }
+ .video-bg h3 {font-size: 22px}
+ .rights{text-align: center;
+  display: block;}
+}
+/* Media 575px */
+@media (max-width:575px) {
+  header .text-header h1 {line-height:55px; padding: 0;width: auto}
+  .clients .owl-nav {display: none}
+  .works ul {margin-bottom: 14px}
+  .works ul li {display: block ;margin-bottom: 9px}
+  .works ul li:before {display: none}
+  .about ul > li > p {min-width: 79px}
+  .works .gallery .item .overlay {line-height: 329px}
+}
+/*========== End @media Screen ===========*/
+
+/* ---------------------------------- START SITE ALL COLOR / BACKGROUND -------------------------------- */
+
+/* HERE BACKGROUND COLOR THE SITE (light) */
+
+/*=== Start Body Color ===*/
+p ,li ,a
+,h1, h2, h3, h4, h5, h6
+,.nav-scroll .navbar-brand
+,.services .card i
+,.skills .prog span
+,.works ul li
+,.works .gallery .card-body h6
+,.works .gallery .card-body span
+,.works .gallery .item .overlay i
+,footer h2
+,header .text-header h1 ,.icon-style {color:#635c5c}
+/*Head Section*/
+.head-section h2 ,.lb-caption {color: #404040}
+.navbar .navbar-brand
+,.navbar-light .navbar-nav .nav-link {color: #635c5c}
+.icon-style:hover
+,.icon-style:focus
+,.icon-style:visited
+,.icon-style:active
+,.works .gallery .item .overlay i:hover
+,.works .gallery .row .item:hover span
+,.loading-over 
+,.video-bg h3 {color: #fff}
+/*=== Start Body Color ===*/
+
+/*=== Start Background Color ===*/
+.background-2
+,.works .gallery .item .overlay i
+,.video-bg:before
+,.double-bounce2
+,.contacts .box-form ,.contacts .contact {background: #fff}
+
+body {background-color: #dbdbdb}
+section
+,.option-box .color-option
+,.option-box .gear-check
+,.icon-style
+,header .text-header h1
+,.about .img-about:before
+,.about .bnt-about
+,.about .bnt-about a
+,.works .gallery .card-body span
+,.lb-dataContainer
+,.scroll-top
+,.resume .ex-container:before {background: #f3f3f3}
+
+.nav-scroll {background: #e6e6e6}
+.skills .progress {background-color: #dbdbdb}
+.contact-icon ,.contacts form .form-control {background:#f3f3f3}
+.contacts form .form-control {color: #eee}
+.contacts form button {
+  background: #f3f3f3 ;
+  color: #636363;
+  -webkit-box-shadow: 0px 1px 3px #3333334d;
+  -moz-box-shadow: 0px 1px 3px #3333334d;
+  -o-box-shadow: 0px 1px 3px #3333334d;
+  box-shadow: 0px 1px 3px #3333334d
+}
+.contacts form button:hover {color: #fff}
+.loading-over {background:#333}
+.double-bounce1 {background: #222}
+/*=== End Background Color ===*/
+
+/*=== Start Border Color ===*/
+.head-section h2:before
+,.video-bg .video i {border:2px solid #404040 ;color: #404040 ;background: #f4f4f3c9}
+.services .card-body:after ,
+.services .card-body:before {border-color: #635c5c30}
+.about .img-about img {border-color: #f3f3f3}
+.video-bg img ,.resume .marker {border-color: #fff}
+.skills .progress-bar span {color: #635c5c; border-color: #635c5c}
+.skills .progress-bar span:after {border-bottom-color: #635c5c}
+/*=== End Border Color ===*/
+
+/*=== Start Box Shadow ===*/
+.body-site {
+  -webkit-box-shadow:0px 0px 8px 2px #cfcfcfcc;
+  -moz-box-shadow:0px 0px 8px 2px #cfcfcfcc;
+  -o-box-shadow:0px 0px 8px 2px #cfcfcfcc;
+  box-shadow:0px 0px 8px 2px #cfcfcfcc
+}
+.about .bnt-about a {
+  -webkit-box-shadow:1px 2px 3px 0px #635c5c4d;
+  -moz-box-shadow:1px 2px 3px 0px #635c5c4d;
+  -o-box-shadow:1px 2px 3px 0px #635c5c4d;
+  box-shadow:1px 2px 3px 0px #635c5c4d
+}
+.about .img-about img {
+  -webkit-box-shadow:1px 1px 16px 2px #808080e0;
+  -moz-box-shadow:1px 1px 16px 2px #808080e0;
+  -o-box-shadow:1px 1px 16px 2px #808080e0;
+  box-shadow:1px 1px 16px 2px #808080e0  
+}
+.about .img-about:before{
+  -webkit-box-shadow:1px 1px 16px 2px #80808078;
+  -moz-box-shadow:1px 1px 16px 2px #80808078;
+  -o-box-shadow:1px 1px 16px 2px #80808078;
+  box-shadow:1px 1px 16px 2px #80808078  
+}
+.video-bg img {
+  -webkit-box-shadow:1px 1px 16px 2px #42424266;
+  -moz-box-shadow:1px 1px 16px 2px #42424266;
+  -o-box-shadow:1px 1px 16px 2px #42424266;
+  box-shadow: 1px 1px 16px 2px #42424266;
+}
+.video-bg:before {
+  -webkit-box-shadow:1px 1px 16px 2px #42424238;
+  -moz-box-shadow:1px 1px 16px 2px #42424238;
+  -o-box-shadow:1px 1px 16px 2px #42424238;
+  box-shadow: 1px 1px 16px 2px #42424238;
+}
+header .image-header img {
+  -webkit-box-shadow: 0 0 0 9px #f3f3f3;
+  -o-box-shadow: 0 0 0 9px #f3f3f3;
+  -moz-box-shadow: 0 0 0 9px #f3f3f3;
+  box-shadow: 0 0 0 9px #f3f3f3
+}
+.works .gallery .item .overlay i ,.icon-style {
+  -webkit-box-shadow: 2px 2px 5px 0px #635c5c99;
+  -moz-box-shadow: 2px 2px 5px 0px #635c5c99;
+  -o-box-shadow: 2px 2px 5px 0px #635c5c99;
+  box-shadow: 2px 2px 5px 0px #635c5c99
+}
+.works .gallery .row .item {
+  -webkit-box-shadow:1px 1px 6px #dbdbdb;
+  -moz-box-shadow:1px 1px 6px #dbdbdb;
+  -o-box-shadow:1px 1px 6px #dbdbdb;
+  box-shadow:1px 1px 6px #dbdbdb
+}
+.resume .ex-container:before
+,.resume .marker
+,.resume .marker-head i {
+  -webkit-box-shadow: -1px 1px 1px 1px #c8c8c8;
+  -moz-box-shadow: -1px 1px 1px 1px #c8c8c8;
+  -o-box-shadow: -1px 1px 1px 1px #c8c8c8;
+  box-shadow: -1px 1px 1px 1px #c8c8c8
+}
+.resume .ex-shadow:hover {
+  -webkit-box-shadow: 0px 1px 12px 0px #adadad;
+  -moz-box-shadow: 0px 1px 12px 0px #adadad;
+  -o-box-shadow: 0px 1px 12px 0px #adadad;
+  box-shadow: 0px 1px 12px 0px #adadad
+}
+.contacts .box-form ,.contacts .contact {
+  -webkit-box-shadow:0px 1px 7px #cfcfcfcc;
+  -moz-box-shadow:0px 1px 7px #cfcfcfcc;
+  -o-box-shadow:0px 1px 7px #cfcfcfcc;
+  box-shadow:0px 1px 7px #cfcfcfcc
+}
+/*=== End Box Shadow ===*/
+
+.rights {color: #635b5c75}
+.rights a {color: #5a5a5a93}
+
+/*=== Media 991px ===*/
+@media (max-width: 991px) {header .text-header h1 {background: none}}
+
+
+ /* HERE STYLE DEFAULT COLOR Type */
+
+ /* HERE COLOR */
+ nav .collapse .navbar-nav .active-li
+ ,nav .collapse .navbar-nav .active-li:focus 
+ ,.navbar-light .navbar-nav .nav-link:focus
+ ,.navbar-light .navbar-nav .nav-link:hover
+ ,.option-box .gear-check
+ ,.scroll-top i
+ ,header .text-header .color-name
+ ,header .text-header p a
+ ,header .text-header p a:hover
+ ,header .text-header button
+ ,.services .item i
+ ,.services .card-title
+ ,.about .a-about
+ ,.about .a-about:hover
+ ,.about .bnt-about a
+ ,.skills li i
+ ,.works ul .selected
+ ,.works ul .selected:hover
+ ,.works .gallery .item:hover .card-body h6
+ ,.resume .ex-content span
+ {color:#29afc6}
+ 
+ /* HERE BACKGROUND COLOR */
+ .icon-style:hover
+ ,header .text-header button:hover
+ ,.about .img-about:hover:before
+ ,.about .bnt-about a:hover
+ ,.video-bg:hover:before
+ ,.video-bg:hover i
+ ,.skills .progress-bar
+ ,.works ul li a:before
+ ,.works ul li:before
+ ,.works .gallery .item:hover .card-body span
+ ,.works .gallery .item .overlay i:hover
+ ,.resume .marker-head i
+ ,.resume .marker
+ ,.contacts form button:hover {background-color:#29afc6}
+ 
+ /* HERE BORDER COLOR*/
+ .services .card-body:hover
+ ,.services .card-body:hover:after
+ ,.services .card-body:hover:before
+ ,.services .card-body:hover:after
+ ,.contacts form .form-control:focus
+ ,.contacts form button:focus {border-color:#29afc6}
+ 
+ /* HERE COLOR LINE CARD SECTION 2 */
+ .services .line-card
+ {background: linear-gradient(819deg ,#29afc6 ,rgba(123, 123, 123, 0.34))}
+ 
+ .works .gallery .item .overlay {background:#29afc6}
+
+ /* ---------------------------------- END SITE ALL COLOR / BACKGROUND-------------------------------- */
