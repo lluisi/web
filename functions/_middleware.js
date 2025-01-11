@@ -2,12 +2,23 @@ export async function onRequest(context) {
   const request = context.request;
   const url = new URL(request.url);
   
-  // Log the Accept-Language header
-  console.log('Accept-Language header:', request.headers.get('Accept-Language'));
-  
   // Skip middleware for assets
   if (url.pathname.startsWith('/assets/')) {
     return context.next();
+  }
+
+  // Check for language preference cookie
+  const cookies = request.headers.get('cookie') || '';
+  const hasPreferredLang = cookies.includes('preferred_lang=');
+  const preferredLang = hasPreferredLang ? 
+    cookies.split('preferred_lang=')[1].split(';')[0] : null;
+
+  // If user has explicitly chosen a language via cookie, respect that
+  if (preferredLang === 'en') {
+    return context.next();
+  }
+  if (preferredLang === 'ca') {
+    return Response.redirect(`${url.origin}/ca/`, 302);
   }
 
   // Get user's preferred languages from the Accept-Language header
@@ -15,9 +26,6 @@ export async function onRequest(context) {
   const preferredLanguages = acceptLanguage
     .split(',')
     .map(lang => lang.split(';')[0].trim().toLowerCase());
-    
-  // Log the parsed preferred languages
-  console.log('Preferred languages:', preferredLanguages);
 
   // Check if user is explicitly requesting Catalan version
   if (url.pathname.startsWith('/ca/')) {

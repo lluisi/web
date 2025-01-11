@@ -344,9 +344,9 @@
     <div class="container">
       <nav class="navbar">
         <div class="language-switch">
-          <a href="/" class="lang-link {{#if isEn}}active{{/if}}">EN</a>
+          <a href="/" onclick="setLanguagePreference('en'); return true;" class="lang-link {{#if isEn}}active{{/if}}">EN</a>
           <span class="lang-separator">/</span>
-          <a href="/ca/" class="lang-link {{#if isCa}}active{{/if}}">CA</a>
+          <a href="/ca/" onclick="setLanguagePreference('ca'); return true;" class="lang-link {{#if isCa}}active{{/if}}">CA</a>
         </div>
         <button class="theme-switch" aria-label="{{nav.darkModeLabel}}">
           <i class="fas fa-circle-half-stroke"></i>
@@ -429,6 +429,15 @@
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "pra99m2zyq");
+    </script>
+
+    <script>
+      function setLanguagePreference(lang) {
+        // Set cookie to expire in 1 year
+        const expiryDate = new Date();
+        expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+        document.cookie = `preferred_lang=${lang};expires=${expiryDate.toUTCString()};path=/`;
+      }
     </script>
   </body>
 </html> 
