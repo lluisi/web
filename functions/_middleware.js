@@ -9,15 +9,13 @@ const switchLang = async (context) => {
     // Check for existing cookie
     let cookie = context.request.headers.get("cookie")
     
-    // if cookie lang-cookie=ca then change the request to go to /ca
+    // if cookie lang-cookie=ca then redirect to /ca
     if (cookie && cookie.includes(`${cookieName}=ca`)) {
-      url.pathname = catPath
-      return context.env.ASSETS.fetch(url)
+      return Response.redirect(`${url.origin}${catPath}`, 302)
     } else {
-      // if no cookie set, set a cookie value to "en"
+      // if no cookie set, set a cookie value to "en" and stay on homepage
       let version = "en" // default version
-      const asset = await context.env.ASSETS.fetch(url)
-      let response = new Response(asset.body, asset)
+      const response = Response.redirect(`${url.origin}/`, 302)
       response.headers.append("Set-Cookie", `${cookieName}=${version}; path=/`)
       return response
     }
