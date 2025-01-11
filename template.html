@@ -437,14 +437,9 @@
         const langLinks = document.querySelectorAll('.lang-link');
         const currentLang = window.location.pathname.startsWith('/ca/') ? 'ca' : 'en';
         
-        // Get saved language preference and send it as header
-        const savedLang = localStorage.getItem('preferred_lang');
-        if (savedLang && savedLang !== currentLang) {
-          fetch(window.location.href, {
-            headers: {
-              'X-Preferred-Language': savedLang
-            }
-          });
+        // Set initial language preference if not set
+        if (!localStorage.getItem('preferred_lang')) {
+          localStorage.setItem('preferred_lang', currentLang);
         }
 
         // Add click handlers to language links

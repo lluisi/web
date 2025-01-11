@@ -7,20 +7,6 @@ export async function onRequest(context) {
     return context.next();
   }
 
-  const currentLang = url.pathname.startsWith('/ca/') ? 'ca' : 'en';
-
-  // Check for preferred language header
-  const preferredLang = request.headers.get('X-Preferred-Language');
-  if (preferredLang && preferredLang !== currentLang) {
-    // Only redirect if we're not already on the preferred language path
-    if (preferredLang === 'ca' && !url.pathname.startsWith('/ca/')) {
-      return Response.redirect(`${url.origin}/ca/`, 302);
-    }
-    if (preferredLang === 'en' && url.pathname.startsWith('/ca/')) {
-      return Response.redirect(`${url.origin}/`, 302);
-    }
-  }
-
   // Get user's preferred languages from the Accept-Language header
   const acceptLanguage = request.headers.get('Accept-Language') || '';
   const preferredLanguages = acceptLanguage
