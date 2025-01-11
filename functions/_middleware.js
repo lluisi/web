@@ -25,28 +25,26 @@ const handleLanguageCookie = (request) => {
 
 const switchLang = async (context) => {
   const url = new URL(context.request.url)
+  const cookieStatus = handleLanguageCookie(context.request)
   
-  // if homepage
-  //if (url.pathname === "/") {
-    const cookieStatus = handleLanguageCookie(context.request)
-    
-    // Handle Catalan
-    if (cookieStatus.value === 'ca') {
-      const response = Response.redirect(`${url.origin}${catPath}`, 302)
-      cookieStatus.headers.forEach((value, key) => {
-        response.headers.append(key, value)
-      })
-      return response
-    }
-    
-    // Handle English
+  // Only redirect if we're not already on the correct path
+  if (cookieStatus.value === 'ca' && url.pathname !== catPath) {
+    const response = Response.redirect(`${url.origin}${catPath}`, 302)
+    cookieStatus.headers.forEach((value, key) => {
+      response.headers.append(key, value)
+    })
+    return response
+  }
+  
+  if (cookieStatus.value === 'en' && url.pathname !== '/') {
     const response = Response.redirect(`${url.origin}/`, 302)
     cookieStatus.headers.forEach((value, key) => {
       response.headers.append(key, value)
     })
     return response
-  //}
+  }
   
+  // If we're already on the correct path, just continue
   return context.next()
 }
 
