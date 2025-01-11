@@ -1,0 +1,27 @@
+{
+  "lang": "en",
+  "meta": {
+    "title": "Lluís Inglès Elias - Technology Leader & CTO",
+    "description": "Lluís Inglès Elias a Technology Leader and CTO with expertise in building scalable tech teams, cloud architecture, and digital transformation. Specialized in PHP, AWS, and agile methodologies."
+  },
+  "nav": {
+    "darkModeLabel": "Toggle dark mode"
+  },
+  "hero": {
+    "role": "Technology Leader & CTO",
+    "about": [
+      "Since I was a kid, my passion for building websites grew into a career that's taken me from big corporates to thriving in startups. Now, as a tech leader, I focus on building high-performing teams, crafting scalable technology, streamlining operations, and fostering a culture that drives innovation and aligns with strategic goals.",
+      "My professional journey started as a developer at companies like <a href=\"https://www.vueling.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history\" target=\"_blank\" rel=\"noopener noreferrer\">Vueling</a>, then grew into tech lead roles at <a href=\"https://www.trovit.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history\" target=\"_blank\" rel=\"noopener noreferrer\">Trovit</a>, and later into CTO positions at companies like <a href=\"https://www.exoticca.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history\" target=\"_blank\" rel=\"noopener noreferrer\">Exoticca</a>, among others. Now, I'm embracing a new challenge as the founder of my own company."
+    ]
+  },
+  "skills": [
+    "Tech Leadership",
+    "Team Building",
+    "Digital Transformation",
+    "Cloud Architecture",
+    "Agile & OKRs",
+    "Product Strategy",
+    "Tech Due Diligence",
+    "Scaling Teams"
+  ]
+} 

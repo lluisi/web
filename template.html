@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{lang}}">
   <head>
     <link rel="canonical" href="https://lluisingles.com" />
     <meta charset="UTF-8">
@@ -16,18 +16,18 @@
     <meta name="theme-color" content="#ffffff">
     
     <!-- SEO Meta Tags -->
-    <title>Lluís Inglès Elias - Technology Leader & CTO</title>
-    <meta name="description" content="Lluís Inglès Elias a Technology Leader and CTO with expertise in building scalable tech teams, cloud architecture, and digital transformation. Specialized in PHP, AWS, and agile methodologies.">
+    <title>{{meta.title}}</title>
+    <meta name="description" content="{{meta.description}}">
     <meta name="keywords" content="Lluis Ingles, CTO, CTO Exoticca, Tech Lead, PHP Developer, AWS, Cloud Architecture, Technology Leadership">
     
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Lluís Inglès Elias - Technology Leader & CTO">
-    <meta property="og:description" content="Technology Leader specialized in building scalable tech teams and cloud architecture">
+    <meta property="og:title" content="{{meta.title}}">
+    <meta property="og:description" content="{{meta.description}}">
     <meta property="og:image" content="assets/images/lluis.png">
     <meta property="og:url" content="https://lluisingles.com">
     
     <!-- Fonts -->
-    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -222,44 +222,7 @@
         background: #333333;
       }
 
-      /* Touch device optimizations */
-      @media (hover: none) {
-        .profile-image {
-          filter: grayscale(0%);
-        }
-
-        .skills-list li:active,
-        footer a:active {
-          transform: scale(0.95);
-        }
-      }
-
-      /* Print styles */
-      @media print {
-        body {
-          color: black;
-          background: white;
-        }
-
-        .theme-switch,
-        .social-links {
-          display: none;
-        }
-      }
-
-      /* Add styles for text links - add this in the style section */
-      .about-section a {
-        color: var(--text-secondary);
-        text-decoration: none;
-        border-bottom: 1px solid var(--border-color);
-        transition: all 0.3s ease;
-      }
-
-      .about-section a:hover {
-        color: var(--text-color);
-        border-bottom-color: var(--text-color);
-      }
-
+      /* Language switch */
       .language-switch {
         display: flex;
         align-items: center;
@@ -285,6 +248,44 @@
       .lang-separator {
         color: var(--text-secondary);
       }
+
+      /* Touch device optimizations */
+      @media (hover: none) {
+        .profile-image {
+          filter: grayscale(0%);
+        }
+
+        .skills-list li:active,
+        footer a:active {
+          transform: scale(0.95);
+        }
+      }
+
+      /* Print styles */
+      @media print {
+        body {
+          color: black;
+          background: white;
+        }
+
+        .theme-switch,
+        .social-links {
+          display: none;
+        }
+      }
+
+      /* Add styles for text links */
+      .about-section a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .about-section a:hover {
+        color: var(--text-color);
+        border-bottom-color: var(--text-color);
+      }
     </style>
 
     <!-- Schema.org structured data -->
@@ -307,35 +308,31 @@
     <div class="container">
       <nav class="navbar">
         <div class="language-switch">
-          <a href="/" class="lang-link active">EN</a>
+          <a href="/" class="lang-link {{#if isEn}}active{{/if}}">EN</a>
           <span class="lang-separator">/</span>
-          <a href="/ca/" class="lang-link">CA</a>
+          <a href="/ca/" class="lang-link {{#if isCa}}active{{/if}}">CA</a>
         </div>
-        <button class="theme-switch" aria-label="Toggle dark mode">
+        <button class="theme-switch" aria-label="{{nav.darkModeLabel}}">
           <i class="fas fa-circle-half-stroke"></i>
         </button>
       </nav>
 
       <main>
         <section class="hero">
-          <img src="assets/images/lluis.png" alt="Lluís Inglès Elias" class="profile-image">
+          <img src="{{#if isCa}}../{{/if}}assets/images/lluis.png" alt="Lluís Inglès Elias" class="profile-image">
           <h1>Lluís Inglès Elias</h1>
-          <div class="role">Technology Leader & CTO</div>
+          <div class="role">{{hero.role}}</div>
           
           <div class="about-section">
-            <p>Since I was a kid, my passion for building websites grew into a career that's taken me from big corporates to thriving in startups. Now, as a tech leader, I focus on building high-performing teams, crafting scalable technology, streamlining operations, and fostering a culture that drives innovation and aligns with strategic goals.</p>
-            <p>My professional journey started as a developer at companies like <a href="https://www.vueling.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history" target="_blank" rel="noopener noreferrer">Vueling</a>, then grew into tech lead roles at <a href="https://www.trovit.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history" target="_blank" rel="noopener noreferrer">Trovit</a>, and later into CTO positions at companies like <a href="https://www.exoticca.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history" target="_blank" rel="noopener noreferrer">Exoticca</a>, among others. Now, I'm embracing a new challenge as the founder of my own company.</p>
+            {{#each hero.about}}
+              <p>{{{this}}}</p>
+            {{/each}}
           </div>
 
           <ul class="skills-list">
-            <li>Tech Leadership</li>
-            <li>Team Building</li>
-            <li>Digital Transformation</li>
-            <li>Cloud Architecture</li>
-            <li>Agile & OKRs</li>
-            <li>Product Strategy</li>
-            <li>Tech Due Diligence</li>
-            <li>Scaling Teams</li>
+            {{#each skills}}
+              <li>{{this}}</li>
+            {{/each}}
           </ul>
         </section>
 
@@ -387,18 +384,6 @@
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "pra99m2zyq");
-  </script>
-
-  <script>
-    // Scroll Progress Indicator
-    const scrollProgress = document.querySelector('.scroll-progress');
-    
-    window.addEventListener('scroll', () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = `${(scrollTop / scrollHeight) * 100}%`;
-      scrollProgress.style.transform = `scaleX(${scrollTop / scrollHeight})`;
-    });
-  </script>
+    </script>
   </body>
-</html>
+</html> 

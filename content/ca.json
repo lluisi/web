@@ -1,0 +1,27 @@
+{
+  "lang": "ca",
+  "meta": {
+    "title": "Lluís Inglès Elias - Líder Tecnològic i CTO",
+    "description": "Lluís Inglès Elias, Líder Tecnològic i CTO amb experiència en la construcció d'equips tecnològics escalables, arquitectura cloud i transformació digital. Especialitzat en PHP, AWS i metodologies àgils."
+  },
+  "nav": {
+    "darkModeLabel": "Canviar mode fosc"
+  },
+  "hero": {
+    "role": "Líder Tecnològic i CTO",
+    "about": [
+      "Des de petit, la meva passió ja era crear webs, i aquesta es va convertir en la meva carrera professional, portant-me a treballar en grans corporacions i a créixer definitivament en el món de les startups. Ara, com a líder tecnològic, em centro a construir equips d'alt rendiment, dissenyar tecnologia escalable, optimitzar operacions i fomentar una cultura que impulsi la innovació i s'alineï amb els objectius estratègics.",
+      "El meu recorregut professional va començar com a desenvolupador en empreses com <a href=\"https://www.vueling.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history\" target=\"_blank\" rel=\"noopener noreferrer\">Vueling</a>, després vaig créixer fins a rols de líder tècnic a <a href=\"https://www.trovit.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history\" target=\"_blank\" rel=\"noopener noreferrer\">Trovit</a>, i més tard com a CTO a empreses com <a href=\"https://www.exoticca.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history\" target=\"_blank\" rel=\"noopener noreferrer\">Exoticca</a>, entre d'altres. Ara, estic començant un nou repte com a fundador de la meva pròpia empresa."
+    ]
+  },
+  "skills": [
+    "Tech Leadership",
+    "Team Building",
+    "Digital Transformation",
+    "Cloud Architecture",
+    "Agile & OKRs",
+    "Product Strategy",
+    "Tech Due Diligence",
+    "Scaling Teams"
+  ]
+} 
