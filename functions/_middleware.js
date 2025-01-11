@@ -13,12 +13,13 @@ export async function onRequest(context) {
     .split(',')
     .map(lang => lang.split(';')[0].trim().toLowerCase());
 
-  // Check if user is explicitly requesting Catalan version
-  if (url.pathname.startsWith('/ca/')) {
+  // If user is accessing Catalan version or any other path, continue
+  if (url.pathname !== '/') {
     return context.next();
   }
 
-  // Check if user is on the root path and prefers Catalan
+  // Only redirect to Catalan version if user is on the root path
+  // and prefers Catalan (first visit)
   if (url.pathname === '/' && (
     preferredLanguages.includes('ca') ||
     preferredLanguages.includes('ca-es')
@@ -27,6 +28,6 @@ export async function onRequest(context) {
     return Response.redirect(`${url.origin}/ca/`, 302);
   }
 
-  // Otherwise, continue to the English version
+  // For all other cases, continue to the requested version
   return context.next();
 } 
