@@ -84,7 +84,7 @@
       .navbar {
         padding: clamp(0.5rem, 2vh, 1rem) 0;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
       }
 
       .theme-switch {
@@ -259,6 +259,32 @@
         color: var(--text-color);
         border-bottom-color: var(--text-color);
       }
+
+      .language-switch {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .lang-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .lang-link:hover {
+        color: var(--text-color);
+      }
+
+      .lang-link.active {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .lang-separator {
+        color: var(--text-secondary);
+      }
     </style>
 
     <!-- Schema.org structured data -->
@@ -280,6 +306,11 @@
   <body>
     <div class="container">
       <nav class="navbar">
+        <div class="language-switch">
+          <a href="/" class="lang-link active">EN</a>
+          <span class="lang-separator">/</span>
+          <a href="/ca/" class="lang-link">CA</a>
+        </div>
         <button class="theme-switch" aria-label="Toggle dark mode">
           <i class="fas fa-circle-half-stroke"></i>
         </button>
