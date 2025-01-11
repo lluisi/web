@@ -432,33 +432,19 @@
     </script>
 
     <script>
-      // Language switcher functionality
+      // Add this at the start of your language switcher script
       document.addEventListener('DOMContentLoaded', () => {
-        const langLinks = document.querySelectorAll('.lang-link');
-        
-        // Get saved language preference
+        // Create a fetch request to the current page with the preferred language header
         const savedLang = localStorage.getItem('preferred_lang');
-        const currentLang = window.location.pathname.startsWith('/ca/') ? 'ca' : 'en';
-        
-        // Only redirect if:
-        // 1. We have a saved preference
-        // 2. We're coming from an external site (check referrer)
-        // 3. The current language doesn't match the preference
-        if (savedLang && 
-            !document.referrer.includes(window.location.host) && 
-            savedLang !== currentLang) {
-          window.location.href = savedLang === 'ca' ? '/ca/' : '/';
-        }
-
-        // Add click handlers to language links
-        langLinks.forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const lang = link.dataset.lang;
-            localStorage.setItem('preferred_lang', lang);
-            window.location.href = link.href;
+        if (savedLang) {
+          fetch(window.location.href, {
+            headers: {
+              'X-Preferred-Language': savedLang
+            }
           });
-        });
+        }
+        
+        // Rest of your existing language switcher code...
       });
     </script>
   </body>
