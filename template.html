@@ -344,9 +344,9 @@
     <div class="container">
       <nav class="navbar">
         <div class="language-switch">
-          <a href="/" onclick="setLanguagePreference('en'); return true;" class="lang-link {{#if isEn}}active{{/if}}">EN</a>
+          <a href="/" class="lang-link {{#if isEn}}active{{/if}}" data-lang="en">EN</a>
           <span class="lang-separator">/</span>
-          <a href="/ca/" onclick="setLanguagePreference('ca'); return true;" class="lang-link {{#if isCa}}active{{/if}}">CA</a>
+          <a href="/ca/" class="lang-link {{#if isCa}}active{{/if}}" data-lang="ca">CA</a>
         </div>
         <button class="theme-switch" aria-label="{{nav.darkModeLabel}}">
           <i class="fas fa-circle-half-stroke"></i>
@@ -432,12 +432,32 @@
     </script>
 
     <script>
-      function setLanguagePreference(lang) {
-        // Set cookie to expire in 1 year
-        const expiryDate = new Date();
-        expiryDate.setFullYear(expiryDate.getFullYear() + 1);
-        document.cookie = `preferred_lang=${lang};expires=${expiryDate.toUTCString()};path=/`;
-      }
+      // Language switcher functionality
+      document.addEventListener('DOMContentLoaded', () => {
+        const langLinks = document.querySelectorAll('.lang-link');
+        
+        // Get saved language preference
+        const savedLang = localStorage.getItem('preferred_lang');
+        
+        // If there's a saved preference and we're not already on that version
+        if (savedLang) {
+          const currentLang = window.location.pathname.startsWith('/ca/') ? 'ca' : 'en';
+          if (savedLang !== currentLang) {
+            // Redirect to the preferred language version
+            window.location.href = savedLang === 'ca' ? '/ca/' : '/';
+          }
+        }
+
+        // Add click handlers to language links
+        langLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const lang = link.dataset.lang;
+            localStorage.setItem('preferred_lang', lang);
+            window.location.href = link.href;
+          });
+        });
+      });
     </script>
   </body>
 </html> 

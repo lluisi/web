@@ -7,20 +7,6 @@ export async function onRequest(context) {
     return context.next();
   }
 
-  // Check for language preference cookie
-  const cookies = request.headers.get('cookie') || '';
-  const hasPreferredLang = cookies.includes('preferred_lang=');
-  const preferredLang = hasPreferredLang ? 
-    cookies.split('preferred_lang=')[1].split(';')[0] : null;
-
-  // If user has explicitly chosen a language via cookie, respect that
-  if (preferredLang === 'en') {
-    return context.next();
-  }
-  if (preferredLang === 'ca') {
-    return Response.redirect(`${url.origin}/ca/`, 302);
-  }
-
   // Get user's preferred languages from the Accept-Language header
   const acceptLanguage = request.headers.get('Accept-Language') || '';
   const preferredLanguages = acceptLanguage
