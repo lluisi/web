@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{lang}}">
   <head>
     <link rel="canonical" href="https://lluisingles.com" />
     <meta charset="UTF-8">
@@ -16,21 +16,32 @@
     <meta name="theme-color" content="#ffffff">
     
     <!-- SEO Meta Tags -->
-    <title>Lluís Inglès Elias - Technology Leader & CTO</title>
-    <meta name="description" content="Lluís Inglès Elias a Technology Leader and CTO with expertise in building scalable tech teams, cloud architecture, and digital transformation. Specialized in PHP, AWS, and agile methodologies.">
+    <title>{{meta.title}}</title>
+    <meta name="description" content="{{meta.description}}">
     <meta name="keywords" content="Lluis Ingles, CTO, CTO Exoticca, Tech Lead, PHP Developer, AWS, Cloud Architecture, Technology Leadership">
     
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Lluís Inglès Elias - Technology Leader & CTO">
-    <meta property="og:description" content="Technology Leader specialized in building scalable tech teams and cloud architecture">
+    <meta property="og:title" content="{{meta.title}}">
+    <meta property="og:description" content="{{meta.description}}">
     <meta property="og:image" content="assets/images/lluis.png">
     <meta property="og:url" content="https://lluisingles.com">
     
+    <!-- Add after Open Graph tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ingleslluis" />
+    <meta name="twitter:title" content="{{meta.title}}" />
+    <meta name="twitter:description" content="{{meta.description}}" />
+    <meta name="twitter:image" content="https://lluisingles.com/assets/images/lluis.png" />
+    
     <!-- Fonts -->
-    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="alternate" hreflang="en" href="https://lluisingles.com" />
+    <link rel="alternate" hreflang="ca" href="https://lluisingles.com/ca/" />
+    <link rel="alternate" hreflang="x-default" href="https://lluisingles.com" />
     
     <style>
       :root {
@@ -84,7 +95,7 @@
       .navbar {
         padding: clamp(0.5rem, 2vh, 1rem) 0;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
       }
 
       .theme-switch {
@@ -222,6 +233,33 @@
         background: #333333;
       }
 
+      /* Language switch */
+      .language-switch {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .lang-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .lang-link:hover {
+        color: var(--text-color);
+      }
+
+      .lang-link.active {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .lang-separator {
+        color: var(--text-secondary);
+      }
+
       /* Touch device optimizations */
       @media (hover: none) {
         .profile-image {
@@ -247,7 +285,7 @@
         }
       }
 
-      /* Add styles for text links - add this in the style section */
+      /* Add styles for text links */
       .about-section a {
         color: var(--text-secondary);
         text-decoration: none;
@@ -269,44 +307,79 @@
       "name": "Lluís Inglès Elias",
       "jobTitle": "Chief Technology Officer",
       "url": "https://lluisingles.com",
+      "image": "https://lluisingles.com/assets/images/lluis.png",
+      "description": "{{meta.description}}",
+      "knowsLanguage": ["en", "ca", "es"],
+      "workLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "ES"
+        }
+      },
       "sameAs": [
         "https://es.linkedin.com/in/lluisingles",
         "https://github.com/lluisi",
         "https://twitter.com/ingleslluis"
-      ]
+      ],
+      "alumniOf": [
+        {
+          "@type": "Organization",
+          "name": "Vueling"
+        },
+        {
+          "@type": "Organization",
+          "name": "Trovit"
+        },
+        {
+          "@type": "Organization",
+          "name": "Exoticca"
+        }
+      ],
+      "skills": {{skills}}
     }
     </script>
   </head>
   <body>
     <div class="container">
       <nav class="navbar">
-        <button class="theme-switch" aria-label="Toggle dark mode">
+        <div class="language-switch">
+          <a href="/" class="lang-link {{#if isEn}}active{{/if}}">EN</a>
+          <span class="lang-separator">/</span>
+          <a href="/ca/" class="lang-link {{#if isCa}}active{{/if}}">CA</a>
+        </div>
+        <button class="theme-switch" aria-label="{{nav.darkModeLabel}}">
           <i class="fas fa-circle-half-stroke"></i>
         </button>
       </nav>
 
       <main>
-        <section class="hero">
-          <img src="assets/images/lluis.png" alt="Lluís Inglès Elias" class="profile-image">
-          <h1>Lluís Inglès Elias</h1>
-          <div class="role">Technology Leader & CTO</div>
+        <article class="hero">
+          <header>
+            <img src="{{#if isCa}}../{{/if}}assets/images/lluis.png" 
+                 alt="Lluís Inglès Elias - {{hero.role}}" 
+                 class="profile-image"
+                 width="120"
+                 height="120">
+            <h1>Lluís Inglès Elias</h1>
+            <p class="role">{{hero.role}}</p>
+          </header>
           
-          <div class="about-section">
-            <p>Since I was a kid, my passion for building websites grew into a career that's taken me from big corporates to thriving in startups. Now, as a tech leader, I focus on building high-performing teams, crafting scalable technology, streamlining operations, and fostering a culture that drives innovation and aligns with strategic goals.</p>
-            <p>My professional journey started as a developer at companies like <a href="https://www.vueling.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history" target="_blank" rel="noopener noreferrer">Vueling</a>, then grew into tech lead roles at <a href="https://www.trovit.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history" target="_blank" rel="noopener noreferrer">Trovit</a>, and later into CTO positions at companies like <a href="https://www.exoticca.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history" target="_blank" rel="noopener noreferrer">Exoticca</a>, among others. Now, I'm embracing a new challenge as the founder of my own company.</p>
-          </div>
+          <section class="about-section">
+            {{#each hero.about}}
+              <p>{{{this}}}</p>
+            {{/each}}
+          </section>
 
-          <ul class="skills-list">
-            <li>Tech Leadership</li>
-            <li>Team Building</li>
-            <li>Digital Transformation</li>
-            <li>Cloud Architecture</li>
-            <li>Agile & OKRs</li>
-            <li>Product Strategy</li>
-            <li>Tech Due Diligence</li>
-            <li>Scaling Teams</li>
-          </ul>
-        </section>
+          <section class="skills-section">
+            <h2 class="visually-hidden">Skills</h2>
+            <ul class="skills-list" aria-label="Professional skills">
+              {{#each skills}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+          </section>
+        </article>
 
         <footer>
           <div class="social-links">
@@ -356,18 +429,6 @@
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "pra99m2zyq");
-  </script>
-
-  <script>
-    // Scroll Progress Indicator
-    const scrollProgress = document.querySelector('.scroll-progress');
-    
-    window.addEventListener('scroll', () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = `${(scrollTop / scrollHeight) * 100}%`;
-      scrollProgress.style.transform = `scaleX(${scrollTop / scrollHeight})`;
-    });
-  </script>
+    </script>
   </body>
-</html>
+</html> 
