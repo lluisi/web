@@ -1,25 +1,48 @@
 const cookieName = "lang-cookie"
 const catPath = "/ca"
 
+const handleLanguageCookie = (request) => {
+  const cookie = request.headers.get("cookie")
+  
+  // If cookie exists, return its value
+  if (cookie && cookie.includes(cookieName)) {
+    const match = cookie.match(new RegExp(`${cookieName}=([^;]+)`))
+    return {
+      exists: true,
+      value: match ? match[1] : 'en'
+    }
+  }
+  
+  // If no cookie, prepare to set default
+  return {
+    exists: false,
+    value: 'en'
+  }
+}
+
 const switchLang = async (context) => {
   const url = new URL(context.request.url)
   
   // if homepage
   if (url.pathname === "/") {
-    // Check for existing cookie
-    let cookie = context.request.headers.get("cookie")
+    const cookieStatus = handleLanguageCookie(context.request)
     
-    // if cookie lang-cookie=ca then redirect to /ca
-    if (cookie && cookie.includes(`${cookieName}=ca`)) {
+    // Handle Catalan
+    if (cookieStatus.exists && cookieStatus.value === 'ca') {
       return Response.redirect(`${url.origin}${catPath}`, 302)
-    } else {
-      // if no cookie set, set a cookie value to "en" and stay on homepage
-      let version = "en" // default version
-      const response = Response.redirect(`${url.origin}/`, 302)
-      response.headers.append("Set-Cookie", `${cookieName}=${version}; path=/`)
-      return response
     }
+    
+    // Handle English or no cookie
+    const response = Response.redirect(`${url.origin}/`, 302)
+    
+    // Set cookie if it didn't exist
+    if (!cookieStatus.exists) {
+      response.headers.append("Set-Cookie", `${cookieName}=${cookieStatus.value}; path=/`)
+    }
+    
+    return response
   }
+  
   return context.next()
 }
 
