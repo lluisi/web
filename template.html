@@ -438,14 +438,16 @@
         
         // Get saved language preference
         const savedLang = localStorage.getItem('preferred_lang');
+        const currentLang = window.location.pathname.startsWith('/ca/') ? 'ca' : 'en';
         
-        // If there's a saved preference and we're not already on that version
-        if (savedLang) {
-          const currentLang = window.location.pathname.startsWith('/ca/') ? 'ca' : 'en';
-          if (savedLang !== currentLang) {
-            // Redirect to the preferred language version
-            window.location.href = savedLang === 'ca' ? '/ca/' : '/';
-          }
+        // Only redirect if:
+        // 1. We have a saved preference
+        // 2. We're coming from an external site (check referrer)
+        // 3. The current language doesn't match the preference
+        if (savedLang && 
+            !document.referrer.includes(window.location.host) && 
+            savedLang !== currentLang) {
+          window.location.href = savedLang === 'ca' ? '/ca/' : '/';
         }
 
         // Add click handlers to language links
