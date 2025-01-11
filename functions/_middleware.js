@@ -2,6 +2,9 @@ export async function onRequest(context) {
   const request = context.request;
   const url = new URL(request.url);
   
+  // Log the Accept-Language header
+  console.log('Accept-Language header:', request.headers.get('Accept-Language'));
+  
   // Skip middleware for assets
   if (url.pathname.startsWith('/assets/')) {
     return context.next();
@@ -12,6 +15,9 @@ export async function onRequest(context) {
   const preferredLanguages = acceptLanguage
     .split(',')
     .map(lang => lang.split(';')[0].trim().toLowerCase());
+    
+  // Log the parsed preferred languages
+  console.log('Preferred languages:', preferredLanguages);
 
   // Check if user is explicitly requesting Catalan version
   if (url.pathname.startsWith('/ca/')) {
