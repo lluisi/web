@@ -26,11 +26,22 @@
     <meta property="og:image" content="assets/images/lluis.png">
     <meta property="og:url" content="https://lluisingles.com">
     
+    <!-- Add after Open Graph tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ingleslluis" />
+    <meta name="twitter:title" content="{{meta.title}}" />
+    <meta name="twitter:description" content="{{meta.description}}" />
+    <meta name="twitter:image" content="https://lluisingles.com/assets/images/lluis.png" />
+    
     <!-- Fonts -->
     <link rel="stylesheet" href="/assets/css/fonts.css">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="alternate" hreflang="en" href="https://lluisingles.com" />
+    <link rel="alternate" hreflang="ca" href="https://lluisingles.com/ca/" />
+    <link rel="alternate" hreflang="x-default" href="https://lluisingles.com" />
     
     <style>
       :root {
@@ -296,11 +307,36 @@
       "name": "Lluís Inglès Elias",
       "jobTitle": "Chief Technology Officer",
       "url": "https://lluisingles.com",
+      "image": "https://lluisingles.com/assets/images/lluis.png",
+      "description": "{{meta.description}}",
+      "knowsLanguage": ["en", "ca", "es"],
+      "workLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "ES"
+        }
+      },
       "sameAs": [
         "https://es.linkedin.com/in/lluisingles",
         "https://github.com/lluisi",
         "https://twitter.com/ingleslluis"
-      ]
+      ],
+      "alumniOf": [
+        {
+          "@type": "Organization",
+          "name": "Vueling"
+        },
+        {
+          "@type": "Organization",
+          "name": "Trovit"
+        },
+        {
+          "@type": "Organization",
+          "name": "Exoticca"
+        }
+      ],
+      "skills": {{skills}}
     }
     </script>
   </head>
@@ -318,23 +354,32 @@
       </nav>
 
       <main>
-        <section class="hero">
-          <img src="{{#if isCa}}../{{/if}}assets/images/lluis.png" alt="Lluís Inglès Elias" class="profile-image">
-          <h1>Lluís Inglès Elias</h1>
-          <div class="role">{{hero.role}}</div>
+        <article class="hero">
+          <header>
+            <img src="{{#if isCa}}../{{/if}}assets/images/lluis.png" 
+                 alt="Lluís Inglès Elias - {{hero.role}}" 
+                 class="profile-image"
+                 width="120"
+                 height="120">
+            <h1>Lluís Inglès Elias</h1>
+            <p class="role">{{hero.role}}</p>
+          </header>
           
-          <div class="about-section">
+          <section class="about-section">
             {{#each hero.about}}
               <p>{{{this}}}</p>
             {{/each}}
-          </div>
+          </section>
 
-          <ul class="skills-list">
-            {{#each skills}}
-              <li>{{this}}</li>
-            {{/each}}
-          </ul>
-        </section>
+          <section class="skills-section">
+            <h2 class="visually-hidden">Skills</h2>
+            <ul class="skills-list" aria-label="Professional skills">
+              {{#each skills}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+          </section>
+        </article>
 
         <footer>
           <div class="social-links">
