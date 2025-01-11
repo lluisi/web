@@ -24,7 +24,7 @@ export async function onRequest(context) {
     preferredLanguages.includes('ca-es')
   )) {
     // Redirect to Catalan version
-    return Response.redirect(`${url.origin}/ca/`, 302);
+    //return Response.redirect(`${url.origin}/ca/`, 302);
   }
 
   // Otherwise, continue to the English version
