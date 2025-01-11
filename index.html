@@ -247,6 +247,19 @@
           display: none;
         }
       }
+
+      /* Add styles for text links - add this in the style section */
+      .about-section a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .about-section a:hover {
+        color: var(--text-color);
+        border-bottom-color: var(--text-color);
+      }
     </style>
 
     <!-- Schema.org structured data -->
@@ -280,8 +293,8 @@
           <div class="role">Technology Leader & CTO</div>
           
           <div class="about-section">
-            <p>I'm a highly motivated and dynamic Technology Leader. Passionate about building teams and technology for massive-scale businesses, improving operational efficiencies, and defining culture to align with strategic initiatives and organizational goals.</p>
-            <p>I started in the industry as a developer and spent more than 11 years switching between different stacks, in addition, I have been leading tech teams since 2012.</p>
+            <p>Since I was a kid, my passion for building websites grew into a career that's taken me from big corporates to thriving in startups. Now, as a tech leader, I focus on building high-performing teams, crafting scalable technology, streamlining operations, and fostering a culture that drives innovation and aligns with strategic goals.</p>
+            <p>My professional journey started as a developer at companies like <a href="https://www.vueling.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history" target="_blank" rel="noopener noreferrer">Vueling</a>, then grew into tech lead roles at <a href="https://www.trovit.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history" target="_blank" rel="noopener noreferrer">Trovit</a>, and later into CTO positions at companies like <a href="https://www.exoticca.com?utm_source=lluisingles&utm_medium=personal_website&utm_campaign=career_history" target="_blank" rel="noopener noreferrer">Exoticca</a>, among others. Now, I'm embracing a new challenge as the founder of my own company.</p>
           </div>
 
           <ul class="skills-list">
