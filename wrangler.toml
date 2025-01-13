@@ -1,6 +1,6 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "my-hono-app"
-main = "src/index.ts"
+main = "src/index.tsx"
 compatibility_date = "2025-01-09"
 assets = { directory = "./public", binding = "ASSETS" }
 
