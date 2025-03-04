@@ -2,9 +2,5 @@
 name = "lluis-web"
 compatibility_date = "2025-03-04"
 
-routes = [
-  { pattern = "www.lluisingles.com", custom_domain = true }
-]
-
 # Pages configuration
 pages_build_output_dir = "."  # Using root directory
