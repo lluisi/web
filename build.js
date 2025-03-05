@@ -51,7 +51,7 @@ async function copyStaticFiles() {
     'User-agent: *\n' +
     'Allow: /\n' +
     'Allow: /ca/\n\n' +
-    'Sitemap: https://lluisingles.com/sitemap.xml\n'
+    'Sitemap: https://www.lluisingles.com/sitemap.xml\n'
   );
 
   await fs.writeFile('sitemap.xml',
